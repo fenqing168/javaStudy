@@ -1,7 +1,9 @@
-package cn.fenqing168.study.code.definite;
+package liner_table.cn.fenqing168.study.code.definite;
 
-import cn.fenqing168.study.code.exception.MyArrayIndexOutOfBoundsException;
-import cn.fenqing168.study.code.interfaces.List;
+import liner_table.cn.fenqing168.study.code.exception.MyArrayIndexOutOfBoundsException;
+import liner_table.cn.fenqing168.study.code.interfaces.List;
+
+import java.util.Arrays;
 
 /**
  * 顺序列表实现方式
@@ -59,12 +61,23 @@ public class ArrayList implements List {
 
     @Override
     public void add(int i, Object e) {
-
+        if(i < 0 || i >= ++size){
+            throw new MyArrayIndexOutOfBoundsException("数组下标越界：" + i);
+        }
+        dilatation();
+        System.arraycopy(elementData, i, elementData, i + 1, size - i);
+        elementData[i] = e;
     }
 
     @Override
     public void add(Object e) {
-        elementData[size++] = e;
+        add(size, e);
+    }
+
+    private void dilatation(){
+        if(size == elementData.length){
+            elementData = Arrays.copyOf(elementData, elementData.length + (elementData.length >> 1));
+        }
     }
 
     @Override
@@ -90,5 +103,18 @@ public class ArrayList implements List {
     @Override
     public Object replace(int i, Object e) {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        for(int i = 0; i < size; i++){
+            sb.append(elementData[i]);
+            if(i < size - 1){
+                sb.append(",");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }

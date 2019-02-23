@@ -1,4 +1,4 @@
-package cn.fenqing168.study.code.interfaces;
+package liner_table.cn.fenqing168.study.code.interfaces;
 /**
  * 线性表接口
  * 和存储结构无关

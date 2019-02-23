@@ -1,4 +1,4 @@
-package cn.fenqing168.study.code.exception;
+package liner_table.cn.fenqing168.study.code.exception;
 
 /**
  * 数组下标越界异常
