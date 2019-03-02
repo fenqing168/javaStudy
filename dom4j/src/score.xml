@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scores>
+    <student id="1">
+        <name>fenqing1</name>
+        <subject>java</subject>
+        <score>90</score>
+    </student>
+    <student id="2">
+        <name>fenqing2</name>
+        <subject>sql</subject>
+        <score>60</score>
+    </student>
+    <student id="3">
+        <name>fenqing3</name>
+        <subject>html</subject>
+        <score>60</score>
+    </student>
+    <student id="4">
+        <name>fenqing4</name>
+        <subject>js</subject>
+        <score>40</score>
+    </student>
+    <student id="5">
+        <name>fenqing5</name>
+        <subject>jq</subject>
+        <score>20</score>
+    </student>
+</scores>
