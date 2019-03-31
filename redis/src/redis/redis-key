@@ -1,0 +1,7 @@
+redis学习
+-keys (模糊搜索，如*) 查看符合条件的key
+-exists keynames 获取改数据是否存在
+-move keyname dbindex 将当前数据库的key转移至指定库
+-expire key time 将指定key设置一个过期时间，时间一过，将消失
+-ttl key 获取当前key有效时间，-1 用不过期， -2已过期
+--type key 获取key的类型
