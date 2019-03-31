@@ -1,0 +1,19 @@
+redis学习
+-set key value 设置一个数据到当前数据库
+-get key 获取一个数据
+-append key value 在原来的数据上追加字符串，数据原来不存在，效果等同set
+-strlen key 获取数据的长度
+
+-incr key 自增1，只能在数字类型上使用
+-decr key 自减1，只能在数字类型上使用
+-incrby key numberValue 增加指定数字
+-decrby key numberValue 减少指定数字
+-getrange key start end 获取字符串从start（不包括） 到end（包括）的子字符串
+-setrange key offset value 修改字符串，从offset开始，替换一个新的字符串到字符串中
+
+-setex key seconds value 数据存在在成功，成功的功能等效于set,并设置一个有效期
+-setnx key value 数据不存在成功， 成功的功能等效于set
+
+-mset key1 value1 key2 value2... 一次性设置多个值
+-mget k1 k2 k3 一次性获取多个值
+-msetnx key1 value1 key2 value2 一次性设置多个数据(一旦有一个存在的失败）

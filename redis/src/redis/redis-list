@@ -1,0 +1,19 @@
+redis学习
+-lpust key values 从前依次入队
+-rpust key values 后后依次入队
+-lrange 从队列前依次遍历
+
+-lpop 从前出队
+-rpop 从后出队
+
+-lindex 使用索引获取元素
+
+-llen 获取list的元素个数
+
+-lrem key count value count>0 删除从前到后count个和value相等的元素，
+count<0 删除从后到前count个和value相等的元素，count=0删除整个list与value相等的元素
+-ltrim key start end 将key代表的数组截取从start到end的list再复制给key
+-rpoplpush source dest 将原list后出队 然后入队到目标list前
+-lset key index value 将一个元素设置到key指定位置（index）中
+
+-linsert key before/after value1 value2 在key的value1前面或者后面添加value2
