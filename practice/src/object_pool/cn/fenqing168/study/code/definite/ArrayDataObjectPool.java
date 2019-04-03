@@ -22,8 +22,8 @@ public class ArrayDataObjectPool implements DataObjectPool {
 
     private int maxNum;
 
-    public ArrayDataObjectPool(int mixNum, int maxNum) {
-        int length = maxNum - mixNum;
+    public ArrayDataObjectPool(int minNum, int maxNum) {
+        int length = maxNum - minNum;
         bytes = new Byte[length];
         shorts = new Short[length];
         ints = new Integer[length];

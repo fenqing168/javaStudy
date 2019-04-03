@@ -7,9 +7,9 @@ public class DataObjectPoolTest {
 
     public static void main(String[] args) {
 
-        DataObjectPool dataObjectPool = new ArrayDataObjectPool(-90000, 90000);
-        Integer num1 = dataObjectPool.pack(90001);
-        Integer num2 = dataObjectPool.pack(90001);
+        DataObjectPool dataObjectPool = new ArrayDataObjectPool(-100, 100);
+        Integer num1 = dataObjectPool.pack(600);
+        Integer num2 = dataObjectPool.pack(600);
         System.out.println(num1 == num2);
 
     }
