@@ -63,7 +63,6 @@ public class SocketPool {
         return socket;
     }
 
-
     public synchronized void close(Socket socket){
         if(socketPool.size() < maxComment){
             socketPool.add(socket);

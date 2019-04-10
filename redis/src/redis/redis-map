@@ -1,1 +1,2 @@
 -redis学习
+-hset key field1 value1 field2 value2 创建或者修改一个map，将字段设置到

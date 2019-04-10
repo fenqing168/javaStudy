@@ -33,11 +33,44 @@ public class SocketUtil {
         }
     }
 
+    /**
+     * 发送并响应
+     * @param data
+     * @return
+     */
     public byte[] sendData(byte[] data){
         try {
             os.write(data);
             os.flush();
+            return readData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("请求失败");
+    }
 
+    /**
+     * 发送数据，并不读取响应
+     * @param data
+     */
+    public void sendData2(byte[] data, boolean isFinish){
+        try {
+            os.write(data);
+            if(isFinish){
+                os.flush();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("请求失败");
+    }
+
+    /**
+     * 读取数据
+     * @return
+     */
+    public byte[] readData(){
+        try {
             List<Byte> byteList = new ArrayList<>();
             byte temp;
             while ((temp = (byte) is.read()) != -1){
@@ -55,7 +88,18 @@ public class SocketUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new RuntimeException("请求失败");
+        throw new RuntimeException("读取数据失败");
+    }
+
+    /**
+     * 只限于采集卡的指令
+     * @return
+     */
+    public byte[] sendDataByBean(CmdDataBean cmdData){
+        String d = cmdData.getDescribe() + "\r\n";
+        sendData2(d.getBytes(), false);
+        sendData2(cmdData.getDataBody(), true);
+        return readData();
     }
 
 }
