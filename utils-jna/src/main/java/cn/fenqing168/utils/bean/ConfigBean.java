@@ -63,12 +63,9 @@ public class ConfigBean {
 
     static{
         System.out.println("【加载配置文件】");
-        Class c = ConfigBean.class;
-        ClassLoader classLoader = c.getClassLoader();
-        URL u = classLoader.getResource("config/dll.properties");
         Properties properties = new Properties();
         try {
-            properties.load(new FileInputStream(u.getFile()));
+            properties.load(ConfigBean.class.getResourceAsStream("/config/dll.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }

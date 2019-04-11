@@ -23,12 +23,8 @@ public class DllConnection {
      * maven项目，直接在resources下创建一个dll文件夹，将ETHDLL.dll放入即可
      */
     static {
-        Class c = DllConnection.class;
-        ClassLoader classLoader = c.getClassLoader();
-        URL u = classLoader.getResource("");
-        String classPath = u.getPath() + "dll/ETHDLL";
-        classPath = classPath.substring(1);
-        DLL = (Dll) Native.loadLibrary(classPath, Dll.class);
+        String classpath = DllConnection.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        DLL = (Dll) Native.loadLibrary("ETHDLL", Dll.class);
     }
 
     /**
@@ -83,7 +79,7 @@ public class DllConnection {
     public int syncParaWrite(int adFrequency, int adRange, int ainSelect, int aisleNum, short masterFlag){
         short chEnabled = compute8421(aisleNum);
         DLL.ADSyncParaWrite(adFrequency, adRange, ainSelect, chEnabled, masterFlag, connectIndex);
-        DLL.ADStart(connectIndex);
+        int num = DLL.ADStart(connectIndex);
         return aisleNum;
     }
 
@@ -96,7 +92,7 @@ public class DllConnection {
     public short[] dataRead(int aisleNum, int groupNum){
         int size = aisleNum * groupNum;
         short[] datas = new short[size];
-        DLL.ADDataRead(datas, size, connectIndex);
+        int num = DLL.ADDataRead(datas, size, connectIndex);
         return datas;
     }
 
