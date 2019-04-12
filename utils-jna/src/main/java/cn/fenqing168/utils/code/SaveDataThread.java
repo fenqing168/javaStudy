@@ -1,5 +1,7 @@
 package cn.fenqing168.utils.code;
 
+import cn.fenqing168.utils.bean.Common;
+
 public class SaveDataThread implements Runnable {
 
     /**
@@ -27,6 +29,7 @@ public class SaveDataThread implements Runnable {
      */
     @Override
     public void run() {
+        Common.printLog(Common.HINT, "异步保存数据开始");
         saveDataTemplate.saveData(datas);
     }
 }

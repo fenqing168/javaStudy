@@ -1,5 +1,7 @@
 package cn.fenqing168.utils.code;
 
+import cn.fenqing168.utils.bean.Common;
+
 import javax.xml.ws.soap.Addressing;
 
 /**
@@ -23,9 +25,15 @@ public class ApplicationContext {
      * 开始程序，启动死循环，不断读取数据，获取数据后开启线程保存数据，不影响继续读取
      */
     public void start(){
-        while(true){
-            double[] datas = requestDataTemplate.request(connection);
-            new Thread(new SaveDataThread(datas, saveDataTemplate)).start();
+        if(connection.getConnectIndex() >= 0){
+            while(true){
+                Common.printLog(Common.HINT, "开始获取数据");
+                double[] datas = requestDataTemplate.request(connection);
+                new Thread(new SaveDataThread(datas, saveDataTemplate)).start();
+            }
+        }else{
+            Common.printLog(Common.ERROR, "连接失效，启动失败！");
         }
+
     }
 }

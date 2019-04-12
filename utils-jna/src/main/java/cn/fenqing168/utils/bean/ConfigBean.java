@@ -42,27 +42,12 @@ public class ConfigBean {
     private int connectionNum;
 
     /**
-     * 连接池最小数量
-     */
-    private int minConnectionPool;
-
-    /**
-     * 连接池最大数量
-     */
-    private int maxConnectionPool;
-
-    /**
-     * 获取数据的线程数
-     */
-    private int dataThread;
-
-    /**
      * 单例
      */
     public static ConfigBean configBean;
 
     static{
-        System.out.println("【加载配置文件】");
+        Common.printLog(Common.HINT, "加载配置文件");
         Properties properties = new Properties();
         try {
             properties.load(ConfigBean.class.getResourceAsStream("/config/dll.properties"));
@@ -76,9 +61,7 @@ public class ConfigBean {
         configBean.type = Integer.valueOf(properties.getProperty("type"));
         configBean.outTime = Integer.valueOf(properties.getProperty("outTime"));
         configBean.connectionNum = Integer.valueOf(properties.getProperty("connectionNum"));
-        configBean.minConnectionPool = Integer.valueOf(properties.getProperty("minConnectionPool"));
-        configBean.maxConnectionPool = Integer.valueOf(properties.getProperty("maxConnectionPool"));
-        configBean.dataThread = Integer.valueOf(properties.getProperty("dataThread"));
+        Common.printLog(Common.SUCCEED, "加载配置文件成功");
     }
 
     public String getFacilityIp() {
@@ -105,15 +88,4 @@ public class ConfigBean {
         return connectionNum;
     }
 
-    public int getMinConnectionPool() {
-        return minConnectionPool;
-    }
-
-    public int getMaxConnectionPool() {
-        return maxConnectionPool;
-    }
-
-    public int getDataThread() {
-        return dataThread;
-    }
 }
