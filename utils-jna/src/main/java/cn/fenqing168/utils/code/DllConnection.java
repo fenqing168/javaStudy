@@ -72,6 +72,7 @@ public class DllConnection {
         int[] ipbuff = new int[]{DLL.IP_StrToInt(ip)};
         DLL.SysInit(ipbuff, 1);
         connectIndex = DLL.ConnectCreate(ipbuff[0], (short) port, (short) localPort, type, outTime, num);
+        connectionStatus();
     }
 
     /**
@@ -123,7 +124,7 @@ public class DllConnection {
         short chEnabled = compute8421(aisleNum);
         DLL.ADSyncParaWrite(adFrequency, adRange, ainSelect, chEnabled, masterFlag, connectIndex);
         int num = DLL.ADStart(connectIndex);
-        return aisleNum;
+        return num;
     }
 
     /**

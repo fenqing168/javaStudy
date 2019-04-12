@@ -12,7 +12,7 @@ public class Common {
     /**
      * 时间格式化工具
      */
-    public static DateFormat DF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static DateFormat DF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 
     /**
      * 提示信息
