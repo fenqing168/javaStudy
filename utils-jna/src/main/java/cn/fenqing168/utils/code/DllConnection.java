@@ -120,15 +120,9 @@ public class DllConnection {
      * @return
      */
     public int syncParaWrite(int adFrequency, int adRange, int ainSelect, int aisleNum, short masterFlag) {
-        Common.printLog(Common.HINT, "设置采集参数，频率：" + adFrequency
-                + ", 输入范围：" + adRange
-                + ", 模拟信号：" + ainSelect
-                + ", 通道数目：" + aisleNum
-                + (masterFlag == 0 ? "主板" : "从板"));
         short chEnabled = compute8421(aisleNum);
         DLL.ADSyncParaWrite(adFrequency, adRange, ainSelect, chEnabled, masterFlag, connectIndex);
         int num = DLL.ADStart(connectIndex);
-        Common.printLog(Common.SUCCEED, "采集完毕");
         return aisleNum;
     }
 
