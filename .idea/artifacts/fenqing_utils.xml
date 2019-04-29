@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="fenqing-utils">
+    <output-path>$PROJECT_DIR$/out/artifacts/fenqing_utils</output-path>
+    <root id="archive" name="fenqing-utils.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/fenqing-utils/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

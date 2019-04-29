@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/520/520.iml" filepath="$PROJECT_DIR$/520/520.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datasturcture/datasturcture.iml" filepath="$PROJECT_DIR$/datasturcture/datasturcture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fenqing-utils/fenqing-utils.iml" filepath="$PROJECT_DIR$/fenqing-utils/fenqing-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leetcode/leetcode.iml" filepath="$PROJECT_DIR$/leetcode/leetcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practice/practice.iml" filepath="$PROJECT_DIR$/practice/practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis/redis.iml" filepath="$PROJECT_DIR$/redis/redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/time/time.iml" filepath="$PROJECT_DIR$/time/time.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils-jna/utils-jna.iml" filepath="$PROJECT_DIR$/utils-jna/utils-jna.iml" />
+    </modules>
+  </component>
+</project>
